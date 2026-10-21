@@ -175,7 +175,7 @@ for mode in ("light", "dark", "cream"):
     make_chart().save(f"chart_{mode}.png", width=6, height=4, dpi=150)
 ```
 
-That's how every figure in this wiki is made. The [script for this page](https://github.com/KhaiShea/roygbviz-kb/blob/main/scripts/setup.py) is a good example.
+That's how every figure in this wiki is made. The [script for this page](https://github.com/KhaiShea/roygbviz-wiki/blob/main/scripts/setup.py) is a good example.
 
 `rv.use()` also takes a text size and a choice of gridlines. [Customisation](customisation.md) covers those.
 

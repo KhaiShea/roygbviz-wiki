@@ -4,7 +4,7 @@ This repo holds the source for the Roygbviz wiki: everything I know about making
 
 ## Read the wiki
 
-**[khaishea.github.io/roygbviz-kb](https://khaishea.github.io/roygbviz-kb/)**
+**[khaishea.github.io/roygbviz-wiki](https://khaishea.github.io/roygbviz-wiki/)**
 
 That's the best way to read it, with search, a menu, light and dark mode, and figures you can enlarge. The pages here are plain Markdown, so they also read fine on GitHub if you'd rather. Start with [Start here](start-here.md).
 
@@ -12,7 +12,7 @@ That's the best way to read it, with search, a menu, light and dark mode, and fi
 
 The library itself lives in its own repo: **[KhaiShea/roygbviz](https://github.com/KhaiShea/roygbviz)**. That's where to install it from, read the source, or report a bug in Roygbviz.
 
-This repo is only the wiki. If something on a wiki page is wrong or unclear, [open an issue here](https://github.com/KhaiShea/roygbviz-kb/issues).
+This repo is only the wiki. If something on a wiki page is wrong or unclear, [open an issue here](https://github.com/KhaiShea/roygbviz-wiki/issues).
 
 <details>
 <summary><strong>Working on the wiki</strong></summary>
@@ -23,7 +23,7 @@ To preview the site with the same Jekyll setup GitHub Pages uses:
 
 ```bash
 bundle install
-bundle exec jekyll serve   # then open http://localhost:4000/roygbviz-kb/
+bundle exec jekyll serve   # then open http://localhost:4000/roygbviz-wiki/
 ```
 
 No Ruby? Docker works too. This runs in the background, so it works from any terminal:

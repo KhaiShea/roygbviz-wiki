@@ -3,8 +3,8 @@ description: How to make research figures people can actually follow, with Roygb
 author: Khai Dye-Brinkman
 lang: en-NZ
 url: https://khaishea.github.io
-baseurl: /roygbviz-kb
-repository: KhaiShea/roygbviz-kb
+baseurl: /roygbviz-wiki
+repository: KhaiShea/roygbviz-wiki
 library_repo: https://github.com/KhaiShea/roygbviz
 pypi: https://pypi.org/project/roygbviz/
 

@@ -121,14 +121,14 @@ That's the chart at the top of this page. Here's what each Roygbviz part is doin
 
 You'll notice the yellow is pale on white. That's because yellow only looks yellow when it's bright. The end label keeps it readable here, and the [Colour](colour.md) page goes through the other fixes.
 
-The script for this figure, synthetic data and all, is [`scripts/start_here.py`](https://github.com/KhaiShea/roygbviz-kb/blob/main/scripts/start_here.py). It writes a [cream version](assets/start-here/taste_cream.png) too.
+The script for this figure, synthetic data and all, is [`scripts/start_here.py`](https://github.com/KhaiShea/roygbviz-wiki/blob/main/scripts/start_here.py). It writes a [cream version](assets/start-here/taste_cream.png) too.
 
 ---
 
 ## How I've built this
 
-Every figure here can be rebuilt. The script that makes it is committed in [`scripts/`](https://github.com/KhaiShea/roygbviz-kb/tree/main/scripts), and all the example data is synthetic. Every chart says so in its caption.
+Every figure here can be rebuilt. The script that makes it is committed in [`scripts/`](https://github.com/KhaiShea/roygbviz-wiki/tree/main/scripts), and all the example data is synthetic. Every chart says so in its caption.
 
-I've checked it against the real code, which right now means Roygbviz 0.1.1 with plotnine 0.15.8. If something here disagrees with the code, trust the code, and please [open an issue](https://github.com/KhaiShea/roygbviz-kb/issues) so I can fix it.
+I've checked it against the real code, which right now means Roygbviz 0.1.1 with plotnine 0.15.8. If something here disagrees with the code, trust the code, and please [open an issue](https://github.com/KhaiShea/roygbviz-wiki/issues) so I can fix it.
 
 The plot type pages follow the categories in the [matplotlib gallery](https://matplotlib.org/stable/gallery/index.html). I link to the gallery rather than copying it, and the explanations are my own.
