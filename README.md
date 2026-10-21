@@ -1,14 +1,25 @@
 # Roygbviz wiki
 
-Everything I know about making research figures with [Roygbviz](https://github.com/KhaiShea/roygbviz), my plotnine theme and palette.
+This repo holds the source for the Roygbviz wiki: everything I know about making research figures with [Roygbviz](https://github.com/KhaiShea/roygbviz), my plotnine theme and palette.
 
-**[Contents](index.md)** · **[Start here](start-here.md)**
+## Read the wiki
 
-The same pages publish as a website with GitHub Pages. Every figure has the script that made it in [`scripts/`](scripts/), and all example data is synthetic.
+**[khaishea.github.io/roygbviz-kb](https://khaishea.github.io/roygbviz-kb/)**
 
-## Preview the site locally
+That's the best way to read it, with search, a menu, light and dark mode, and figures you can enlarge. The pages here are plain Markdown, so they also read fine on GitHub if you'd rather. Start with [Start here](start-here.md).
 
-The site uses a small layout of my own in the style of [GitHub Docs](https://docs.github.com/en), built on GitHub's [Primer](https://primer.style/) CSS. To preview it with the same Jekyll setup GitHub Pages uses:
+## Looking for the code?
+
+The library itself lives in its own repo: **[KhaiShea/roygbviz](https://github.com/KhaiShea/roygbviz)**. That's where to install it from, read the source, or report a bug in Roygbviz.
+
+This repo is only the wiki. If something on a wiki page is wrong or unclear, [open an issue here](https://github.com/KhaiShea/roygbviz-kb/issues).
+
+<details>
+<summary><strong>Working on the wiki</strong></summary>
+
+Every figure has the script that made it in [`scripts/`](scripts/), and all example data is synthetic. The site uses a small layout of my own in the style of [GitHub Docs](https://docs.github.com/en), built on GitHub's [Primer](https://primer.style/) CSS. The menu, breadcrumbs and home page cards all come from [`_data/nav.yml`](_data/nav.yml).
+
+To preview the site with the same Jekyll setup GitHub Pages uses:
 
 ```bash
 bundle install
@@ -27,6 +38,6 @@ docker stop rv-kb      # when you're done
 
 In fish, write `(id -u):(id -g)` instead of `"$(id -u):$(id -g)"`.
 
-The menu, breadcrumbs and home page cards all come from [`_data/nav.yml`](_data/nav.yml).
+After adding a new page, restart the preview (`docker restart rv-kb`). The link plugin remembers which pages exist from when the server started, so links to a brand-new page stay as `.md` until then. GitHub Pages always builds from scratch, so the live site isn't affected.
 
-**After adding a new page, restart the preview** (`docker restart rv-kb`). The link plugin remembers which pages exist from when the server started, so links to a brand-new page stay as `.md` until then. GitHub Pages always builds from scratch, so the live site isn't affected.
+</details>
