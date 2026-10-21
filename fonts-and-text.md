@@ -8,83 +8,82 @@ Most of what's on a chart, apart from the data, is words: the title, the axis na
 
 A few terms first:
 
-- **Typeface** or **font.** The design of the letters, like Arial or Georgia. People use the two words interchangeably, and so do I.
+- **Typeface** or **font.** The design of the letters, like Livvic or Arial. People use the two words interchangeably, and so do I.
 - **Serif.** A font with small strokes at the ends of the letters, like Georgia. A **sans serif** font, like Arial, has none.
 - **Point (pt).** The unit for text size. 72 points make an inch, so 11 pt is about the size of ordinary printed text.
 - **Base size.** The one text size the rest are worked out from. In Roygbviz it's 11 pt unless you change it.
 
 ---
 
-## Two fonts, one job each
+## One font: Livvic
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/fonts/scale_dark.png">
-  <img src="assets/fonts/scale_light.png" alt="A table of the seven kinds of text on a chart, from the title at 17.6 points in a bold serif down to the caption at 7.7 points, each written in its own font, size and colour" width="640">
+  <img src="assets/fonts/scale_light.png" alt="A table of the seven kinds of text on a chart, from the title at 17.6 points in bold down to the caption at 7.7 points, each written in Livvic at its own size and colour" width="640">
 </picture>
 
-**What it is.** Roygbviz uses two fonts. A serif goes on the title and the panel labels, the text you read first. A plain sans serif goes on everything else, the text you look things up in.
+**What it is.** Roygbviz writes everything in [Livvic](https://fonts.google.com/specimen/Livvic), a rounded sans serif. The title and the panel labels are bold, and everything else is regular.
 
-**How to read this one.** Each row is one kind of text, written the way it appears on a chart. The right-hand column gives its size when the base size is 11. The title is the biggest and darkest. Everything below it gets smaller and paler as it gets less important, down to the caption, which you'd only read if you went looking.
+**How to read this one.** Each row is one kind of text, written the way it appears on a chart. The right-hand column gives its size when the base size is 11. The title is the biggest, boldest and darkest. Everything below it gets smaller and paler as it gets less important, down to the caption, which you'd only read if you went looking.
 
-**Why two fonts.** The serif title makes a chart look finished, and it's the only thing on the chart in that font, so the eye lands there first. Numbers and labels are easier to read quickly in a plain sans serif, especially when they're small.
+**Why one font.** With a single font, the title stands out by size and weight alone, and the whole chart reads as one piece. Livvic stays clear at the small sizes axis numbers need, and its rounded letters make a chart feel friendly rather than formal. It also has the macron vowels (ā, ē, ī, ō, ū), so te reo Māori words display properly.
 
 ---
 
 ## Which fonts you'll get
 
 <div class="figure-grid">
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/fonts/pair1_dark.png"><img src="assets/fonts/pair1_light.png" alt="A bar chart with its title in Georgia and everything else in Arial" width="300"></picture>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/fonts/pair2_dark.png"><img src="assets/fonts/pair2_light.png" alt="The same bar chart in Liberation Serif and Liberation Sans" width="300"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/fonts/pair1_dark.png"><img src="assets/fonts/pair1_light.png" alt="A bar chart written entirely in Livvic" width="300"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/fonts/pair2_dark.png"><img src="assets/fonts/pair2_light.png" alt="The same bar chart with its title in Georgia and everything else in Arial" width="300"></picture>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/fonts/pair3_dark.png"><img src="assets/fonts/pair3_light.png" alt="The same bar chart in DejaVu Serif and DejaVu Sans, which are wider" width="300"></picture>
 </div>
 
-**What it does.** Roygbviz doesn't ship any fonts. It looks through a list, in order, and uses the first one installed on your computer. That way you never get a missing-font warning, but your charts can look a bit different from mine.
+**What it does.** Roygbviz doesn't ship any fonts. It looks through a list, in order, and uses the first one installed on your computer. Livvic is first. If you don't have it, you get a fallback, and your charts look a bit different from mine, but you never get a missing-font warning.
 
 | Text | Tries, in order |
 |---|---|
-| Everything except titles | Inter, Helvetica Neue, Helvetica, Arial, Liberation Sans, DejaVu Sans |
-| Titles and panel labels | Source Serif 4, Georgia, Iowan Old Style, Palatino, TeX Gyre Pagella, Caladea, Liberation Serif, DejaVu Serif |
+| Everything except titles | Livvic, Inter, Helvetica Neue, Helvetica, Arial, Liberation Sans, DejaVu Sans |
+| Titles and panel labels | Livvic, Source Serif 4, Georgia, Iowan Old Style, Palatino, TeX Gyre Pagella, Caladea, Liberation Serif, DejaVu Serif |
 
-**How to read this one.** The same chart three times, each with a different pair of fonts from those lists. Each title names the font it's written in. They all work. The DejaVu pair, the last resort, is noticeably wider, so long labels take more room.
+**How to read this one.** The same chart three times. The first is in Livvic, the way it's meant to look. The second is what most computers fall back to without Livvic: a serif title (here Georgia) over a plain sans serif (here Arial). The third is the last resort, DejaVu, which works but is noticeably wider, so long labels take more room.
 
-**In practice.** On Windows you'll usually get Arial and Georgia. On a Mac, Helvetica Neue and Georgia. On Linux it depends what's installed, and Liberation or DejaVu is common. My computer doesn't have Inter, so every figure on this wiki uses Arial and Georgia.
+**In practice.** Without Livvic, Windows usually gives you Arial and Georgia, a Mac Helvetica Neue and Georgia, and Linux whatever's installed, often Liberation or DejaVu.
+
+**Which version.** Livvic became the first choice after version 0.1.1. On 0.1.1 the lists start at Inter and Source Serif 4 instead.
 
 To see which fonts you've got:
 
 ```python
 from roygbviz.config import pick_font, pick_serif
 
-print(pick_font(), pick_serif())   # Arial Georgia, on my computer
+print(pick_font(), pick_serif())   # Livvic Livvic, once it's installed
 ```
 
 ---
 
-## Installing the fonts I designed it for
+## Installing Livvic
 
-Inter and Source Serif 4 are both free. Install the **static** files, the ones with a separate file for each weight. matplotlib can't pick the bold out of a **variable** font (one file that holds every weight), so with only the variable file your titles come out in plain weight, with a `Failed to find font weight bold` warning.
+Livvic is free, under the SIL Open Font License, and comes as a separate file for each weight. That matters, because matplotlib can't pick the bold out of a **variable** font (one file that holds every weight).
 
 <div class="os-tabs" markdown="1">
 
 ### Linux
 
 ```fish
-sudo pacman -S inter-font adobe-source-serif-fonts
+paru -S ttf-livvic
 ```
 
-These are the Arch package names, and both include the static files. On other Linux systems, use the Windows instructions and copy the files into `~/.local/share/fonts`.
+This installs it from the AUR on Arch. Use `yay`, or whichever AUR helper you have. On other Linux systems, download it as for Windows and copy the `.ttf` files into `~/.local/share/fonts`.
 
 ### macOS
 
 ```bash
-brew install --cask font-inter
+brew install --cask font-livvic
 ```
-
-That gives you Inter. Homebrew's Source Serif 4 is only the variable file, so get it from the [Source Serif releases](https://github.com/adobe-fonts/source-serif/releases) instead: download the `Desktop` zip, open the `OTF` folder, select every file and double-click to install.
 
 ### Windows
 
-1. Download `Inter-4.1.zip` (or newer) from the [Inter releases](https://github.com/rsms/inter/releases). Right-click `Inter.ttc` and choose **Install for all users**.
-2. Download the `Desktop` zip from the [Source Serif releases](https://github.com/adobe-fonts/source-serif/releases). Open the `OTF` folder, select every file, right-click and choose **Install for all users**.
+On [Livvic's Google Fonts page](https://fonts.google.com/specimen/Livvic), choose **Get font**, then **Download all**. Unzip it, select every `.ttf` file, right-click and choose **Install for all users**.
 
 </div>
 
@@ -117,7 +116,7 @@ theme_set(rv.theme_roygbviz(base_family="Atkinson Hyperlegible",
 mpl.rcParams["font.family"] = "Atkinson Hyperlegible"
 ```
 
-`base_family` is for everything except titles, and `title_family` is for titles and panel labels. Use the same font for both if you'd rather not have a serif.
+`base_family` is for everything except titles, and `title_family` is for titles and panel labels. Give them different fonts for a different title, like a serif.
 
 **Be careful with:**
 
@@ -202,7 +201,7 @@ Leave the title off when the chart goes into a paper with a figure caption under
 
 ## In plain matplotlib
 
-`rv.use()` sets matplotlib's fonts and sizes too, with one difference: matplotlib titles are in the body font, in bold, not the serif. Ask for the serif when you set the title:
+`rv.use()` sets matplotlib's fonts and sizes too, so plain matplotlib charts come out in Livvic, with bold titles, the same as plotnine. The one difference is without Livvic: matplotlib titles then use the body fallback (Arial, say), not the serif. Ask for the title font when you set the title if you want them to match:
 
 ```python
 import matplotlib.pyplot as plt
@@ -217,4 +216,4 @@ In matplotlib the title is 1.3 times the base size, axis titles 0.9 and the axis
 
 ---
 
-<small>The figures on this page are made by [`scripts/fonts.py`](https://github.com/KhaiShea/roygbviz-wiki/blob/main/scripts/fonts.py). [Inter](https://rsms.me/inter/) is by Rasmus Andersson and [Source Serif](https://github.com/adobe-fonts/source-serif) by Frank Grießhammer for Adobe, both under the SIL Open Font License.</small>
+<small>The figures on this page are made by [`scripts/fonts.py`](https://github.com/KhaiShea/roygbviz-wiki/blob/main/scripts/fonts.py). [Livvic](https://github.com/Fonthausen/Livvic) is by Jacques Le Bailly for LV=, under the SIL Open Font License.</small>

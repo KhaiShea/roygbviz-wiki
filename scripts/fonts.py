@@ -1,7 +1,7 @@
 """Figures for the Fonts and text page. python scripts/fonts.py
 
-Four figures, each in light and dark: the type scale, the same chart in three font pairs, the same chart saved at two
-sizes, and text inside a chart. All data is synthetic.
+Four figures, each in light and dark: the type scale, the same chart in Livvic and in two fallback pairs, the same
+chart saved at two sizes, and text inside a chart. All data is synthetic.
 """
 from pathlib import Path
 
@@ -20,7 +20,7 @@ OUT = Path(__file__).resolve().parent.parent / "assets" / "fonts"
 OUT.mkdir(parents=True, exist_ok=True)
 PAL = None  # the active palette; rv.get_palette() with no mode always gives light, so keep what rv.use() returns
 
-# Every text role in the theme, as (name, what it's for, share of base_size, serif?, bold?, neutral colour).
+# Every text role in the theme, as (name, sample, share of base_size, title font?, bold?, neutral colour).
 # These are copied from theme_roygbviz, so check them against roygbviz/theme.py if the library changes.
 ROLES = [
     ("Title", "Latency fell by a third", 1.6, True, True, "text"),
@@ -47,12 +47,12 @@ def scale_fig(path, dpi=160):
     fig.text(0.04, 0.955, "ROLE", size=7, color=n["muted"], weight="bold", va="center")
     fig.text(0.27, 0.955, "HOW IT LOOKS", size=7, color=n["muted"], weight="bold", va="center")
     fig.text(0.96, 0.955, "SIZE AT BASE 11", size=7, color=n["muted"], weight="bold", va="center", ha="right")
-    for k, (name, sample, share, serif, bold, ink) in enumerate(ROLES):
+    for k, (name, sample, share, titling, bold, ink) in enumerate(ROLES):
         y = top - k * step
         fig.add_artist(plt.Line2D([0.04, 0.96], [y - step / 2] * 2, color=n["grid"], lw=0.8))
         fig.text(0.04, y, name, size=8.5, color=n["text_2"], va="center")
         fig.text(0.27, y, sample, size=11 * share, color=n[ink], va="center",
-                 family=pick_serif() if serif else pick_font(), weight="bold" if bold else "normal")
+                 family=pick_serif() if titling else pick_font(), weight="bold" if bold else "normal")
         fig.text(0.96, y, f"{11 * share:g} pt", size=8.5, color=n["muted"], va="center", ha="right")
     fig.savefig(path, dpi=dpi)
     plt.close(fig)
@@ -65,10 +65,10 @@ def bars(d):
 
 
 def pairs_tiles(mode):
-    """The same chart in three font pairs, all installed on the machine that made this wiki."""
+    """The same chart in Livvic, then in the pair most computers fall back to, then in the last resort."""
     d = pd.DataFrame({"model": ["Conformer", "Parakeet", "Whisper"], "score": [79, 86, 91]})
     d["model"] = pd.Categorical(d["model"], d["model"])
-    pairs = [("Arial", "Georgia"), ("Liberation Sans", "Liberation Serif"), ("DejaVu Sans", "DejaVu Serif")]
+    pairs = [("Livvic", "Livvic"), ("Arial", "Georgia"), ("DejaVu Sans", "DejaVu Serif")]
     for k, (body, serif) in enumerate(pairs, start=1):
         p = (bars(d) + rv.theme_roygbviz(base_family=body, title_family=serif, grid="x")
              + head(f"{serif} for titles", f"{body} for everything else") + labs(x="", y="Score out of 100"))

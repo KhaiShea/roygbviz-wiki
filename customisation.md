@@ -175,7 +175,7 @@ Then a `<picture>` tag shows whichever suits the reader. GitHub and most browser
 
 **What it does.** `rv.use()` also sets matplotlib's defaults (its **rcParams**), so a chart made with plain matplotlib gets the same paper, colours and gridlines. It's how I make the charts plotnine can't draw.
 
-**How to read this one.** The same latency data as the paper examples above, drawn with `ax.plot()` and nothing else from Roygbviz. Each line is a cascade, and lower is faster. The colours come out in the usual order without being asked for. The title is in the body font, since matplotlib titles don't get the serif (see [Fonts and text](fonts-and-text.md#in-plain-matplotlib)).
+**How to read this one.** The same latency data as the paper examples above, drawn with `ax.plot()` and nothing else from Roygbviz. Each line is a cascade, and lower is faster. The colours come out in the usual order without being asked for. The title is in Livvic too, the same as in plotnine.
 
 ```python
 import matplotlib.pyplot as plt

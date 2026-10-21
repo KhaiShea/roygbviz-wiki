@@ -137,7 +137,7 @@ Here's the finished chart from above with plotnine's defaults, and then with Roy
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/grammar/before_after_dark.png">
-  <img src="assets/grammar/before_after_light.png" alt="The same faceted chart twice. On the left, plotnine's default grey panels and bright colours. On the right, Roygbviz's white paper, hairline grid, serif title and muted colours" width="900">
+  <img src="assets/grammar/before_after_light.png" alt="The same faceted chart twice. On the left, plotnine's default grey panels and bright colours. On the right, Roygbviz's white paper, hairline grid, bold Livvic title and muted colours" width="900">
 </picture>
 
 - **The background.** plotnine draws each panel on a grey box. Roygbviz puts the data straight onto the paper, so there's less to look past.

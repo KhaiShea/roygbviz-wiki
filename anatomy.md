@@ -27,7 +27,7 @@ The numbers match this table. The plotnine column gives the name you'd use to se
 |---|---|---|---|
 | 1 | **Figure.** The whole image, edge to edge. Everything else sits on it. | `figure_size`, or `width` and `height` in `save()`. Background: `plot_background` | The paper colour for your mode, with no border |
 | 2 | **Panel.** The area where the data is drawn. matplotlib calls it the Axes. | `panel_background`, `panel_border` | The same colour as the paper, with no border, so the chart sits straight on the page |
-| 3 | **Title.** The headline. In my figures it says what the chart shows. | `labs(title=...)`, `plot_title` | Serif, bold, 1.6 times the text size, lined up with the left edge of the whole figure |
+| 3 | **Title.** The headline. In my figures it says what the chart shows. | `labs(title=...)`, `plot_title` | Livvic, bold, 1.6 times the text size, lined up with the left edge of the whole figure |
 | 4 | **Subtitle.** A line under the title saying what's measured, or how to read it. | `labs(subtitle=...)`, `plot_subtitle` | Softer ink, a little smaller than body text |
 | 5 | **Line.** Joins one series' values in order, so your eye can follow it. | `geom_line()` | Colour from the Roygbviz scale. Use `rv.stroke()` to size it with the text |
 | 6 | **Markers.** A dot (or other shape) for each actual value. plotnine calls them points. | `geom_point()` | Same as lines |
@@ -40,7 +40,7 @@ The numbers match this table. The plotnine column gives the name you'd use to se
 | 13 | **End label.** A series' name, written where its line ends, so you don't need the legend. | Not part of plotnine | `rv.end_labels()`. Written in ink, not the line's colour, so pale colours stay readable |
 | 14 | **Caption.** Small print at the bottom: where the data came from, and notes like "Synthetic data". | `labs(caption=...)`, `plot_caption` | Small, muted, bottom left. It's where "Synthetic data" and sources go |
 
-One more part isn't in the picture: the **strip**, which is the label above each small panel when you use facets. plotnine calls it `strip_text`, and Roygbviz makes it a bold serif with no background box. You can see strips in the [Grammar of graphics](grammar-of-graphics.md#build-a-chart-one-part-at-a-time) example.
+One more part isn't in the picture: the **strip**, which is the label above each small panel when you use facets. plotnine calls it `strip_text`, and Roygbviz makes it bold with no background box. You can see strips in the [Grammar of graphics](grammar-of-graphics.md#build-a-chart-one-part-at-a-time) example.
 
 ---
 

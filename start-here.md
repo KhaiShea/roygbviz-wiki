@@ -23,7 +23,7 @@ Figures are the best chance I've got. If someone can read a chart at a glance, i
 
 - **The colours should mean something.** Each model keeps the same colour in every figure, and each stage of the pipeline gets its own colour as well.
 - **Nobody should have to squint.** I write each line's name at the end of the line, so you're not matching colours against a legend, and I keep the grid and axes quiet.
-- **It should look good in any light.** I like serif titles, and I wanted light, dark and cream versions that all share the same colours.
+- **It should look good in any light.** I like clean, rounded type, and I wanted light, dark and cream versions that all share the same colours.
 
 Roygbviz isn't a plotting library, though. plotnine does the drawing, and Roygbviz decides how it looks.
 

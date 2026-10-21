@@ -139,7 +139,7 @@ Run it with `python first_chart.py`. plotnine prints a `PlotnineWarning` saying 
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/setup/first_chart_dark.png">
-  <img src="assets/setup/first_chart_light.png" alt="Bar chart of word error rate for three models, Conformer in red, Parakeet in yellow and Whisper in teal, with a serif title" width="640">
+  <img src="assets/setup/first_chart_light.png" alt="Bar chart of word error rate for three models, Conformer in red, Parakeet in yellow and Whisper in teal, with a bold title" width="640">
 </picture>
 
 Only two lines in there are Roygbviz. `rv.use("light")` styles everything, and `rv.scale_fill_roygbviz_d()` colours the bars. The rest is plain plotnine, which [Grammar of graphics](grammar-of-graphics.md) walks through.
@@ -205,18 +205,11 @@ You'll also see a warning that `FigureCanvasAgg is non-interactive, and thus can
 
 ### The fonts look plain
 
-Roygbviz uses the first font it can find from a list:
+Roygbviz uses [Livvic](https://fonts.google.com/specimen/Livvic) for all its text. Without it, you get whatever fallback your computer has, often Arial and Georgia, or DejaVu on Linux, which works but looks plain. To get the intended look, install Livvic:
 
-- **Body text:** Inter, Helvetica Neue, Helvetica, Arial, Liberation Sans, then DejaVu Sans.
-- **Titles:** Source Serif 4, Georgia, Iowan Old Style, Palatino, TeX Gyre Pagella, Caladea, Liberation Serif, then DejaVu Serif.
-
-If none of the early ones are installed, you end up with DejaVu, which works but looks plain. To get the intended look, install Inter and Source Serif 4:
-
-- **Arch:** `sudo pacman -S inter-font adobe-source-serif-fonts`
-- **macOS:** `brew install --cask font-inter`, then Source Serif 4 from its [releases page](https://github.com/adobe-fonts/source-serif/releases) (the files in the `OTF` folder of the `Desktop` zip).
-- **Windows:** download [Inter](https://github.com/rsms/inter/releases) and [Source Serif 4](https://github.com/adobe-fonts/source-serif/releases), then right-click `Inter.ttc` and the files in Source Serif's `OTF` folder and choose **Install for all users**.
-
-Use these files rather than the single "variable" font file some downloads give you, because matplotlib can't draw bold from a variable font.
+- **Arch:** `paru -S ttf-livvic`, from the AUR (or `yay`, or whichever AUR helper you use)
+- **macOS:** `brew install --cask font-livvic`
+- **Windows:** on [Livvic's Google Fonts page](https://fonts.google.com/specimen/Livvic), choose **Get font**, then **Download all**. Unzip it, select every `.ttf` file, right-click and choose **Install for all users**.
 
 matplotlib keeps a list of fonts and won't notice new ones on its own. Find its cache folder with `python -c "import matplotlib; print(matplotlib.get_cachedir())"`, delete the `fontlist` file in there, and restart Python (or your notebook's kernel). [Fonts and text](fonts-and-text.md) has more.
 
