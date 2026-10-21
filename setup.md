@@ -213,8 +213,10 @@ Roygbviz uses the first font it can find from a list:
 If none of the early ones are installed, you end up with DejaVu, which works but looks plain. To get the intended look, install Inter and Source Serif 4:
 
 - **Arch:** `sudo pacman -S inter-font adobe-source-serif-fonts`
-- **macOS:** `brew install --cask font-inter font-source-serif-4`
-- **Windows:** download [Inter](https://rsms.me/inter/) and [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4), then right-click each font file and choose **Install**.
+- **macOS:** `brew install --cask font-inter`, then Source Serif 4 from its [releases page](https://github.com/adobe-fonts/source-serif/releases) (the files in the `OTF` folder of the `Desktop` zip).
+- **Windows:** download [Inter](https://github.com/rsms/inter/releases) and [Source Serif 4](https://github.com/adobe-fonts/source-serif/releases), then right-click `Inter.ttc` and the files in Source Serif's `OTF` folder and choose **Install for all users**.
+
+Use these files rather than the single "variable" font file some downloads give you, because matplotlib can't draw bold from a variable font.
 
 matplotlib keeps a list of fonts and won't notice new ones on its own. Find its cache folder with `python -c "import matplotlib; print(matplotlib.get_cachedir())"`, delete the `fontlist` file in there, and restart Python (or your notebook's kernel). [Fonts and text](fonts-and-text.md) has more.
 
