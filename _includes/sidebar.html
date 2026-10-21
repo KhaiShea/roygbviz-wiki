@@ -1,0 +1,18 @@
+<nav id="sidebar" class="sidebar" aria-label="Pages">
+  <a class="nav-home" href="{{ '/' | relative_url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
+  {% for g in site.data.nav %}
+  <h2 class="nav-group">{{ g.group }}</h2>
+  <ul>
+    {% for item in g.pages %}
+    {% assign found = site.html_pages | where: "url", item.url | first %}
+    <li>
+      {% if found %}
+      <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% else %}
+      <span class="soon">{{ item.title }} <span class="Label">Soon</span></span>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</nav>

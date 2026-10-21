@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+_site/
+.jekyll-cache/
+.sass-cache/
+vendor/
+.bundle/
+Gemfile.lock

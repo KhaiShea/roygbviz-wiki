@@ -1,0 +1,5 @@
+<form class="search{% if include.size == 'large' %} search-large{% endif %}" role="search" data-search onsubmit="return false">
+  <label class="sr-only" for="{{ include.id }}">Search the wiki</label>
+  <input id="{{ include.id }}" class="form-control" type="search" placeholder="Search the wiki" autocomplete="off" aria-controls="{{ include.id }}-results">
+  <ul id="{{ include.id }}-results" class="search-results" role="listbox" hidden></ul>
+</form>

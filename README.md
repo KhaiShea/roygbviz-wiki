@@ -1,0 +1,32 @@
+# Roygbviz wiki
+
+Everything I know about making research figures with [Roygbviz](https://github.com/KhaiShea/roygbviz), my plotnine theme and palette.
+
+**[Contents](index.md)** · **[Start here](start-here.md)**
+
+The same pages publish as a website with GitHub Pages. Every figure has the script that made it in [`scripts/`](scripts/), and all example data is synthetic.
+
+## Preview the site locally
+
+The site uses a small layout of my own in the style of [GitHub Docs](https://docs.github.com/en), built on GitHub's [Primer](https://primer.style/) CSS. To preview it with the same Jekyll setup GitHub Pages uses:
+
+```bash
+bundle install
+bundle exec jekyll serve   # then open http://localhost:4000/roygbviz-kb/
+```
+
+No Ruby? Docker works too. This runs in the background, so it works from any terminal:
+
+```bash
+docker run -d --rm --name rv-kb -p 4000:4000 -p 35729:35729 -v "$PWD":/site -w /site \
+  -e HOME=/tmp -e BUNDLE_PATH=/site/vendor/bundle --user "$(id -u):$(id -g)" ruby:3.3 \
+  bash -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --livereload"
+docker logs -f rv-kb   # watch it start; Ctrl+C stops watching, not the server
+docker stop rv-kb      # when you're done
+```
+
+In fish, write `(id -u):(id -g)` instead of `"$(id -u):$(id -g)"`.
+
+The menu, breadcrumbs and home page cards all come from [`_data/nav.yml`](_data/nav.yml).
+
+**After adding a new page, restart the preview** (`docker restart rv-kb`). The link plugin remembers which pages exist from when the server started, so links to a brand-new page stay as `.md` until then. GitHub Pages always builds from scratch, so the live site isn't affected.

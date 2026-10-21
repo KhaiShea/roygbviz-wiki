@@ -1,0 +1,40 @@
+title: Roygbviz wiki
+description: How to make research figures people can actually follow, with Roygbviz and plotnine.
+author: Khai Dye-Brinkman
+lang: en-NZ
+url: https://khaishea.github.io
+baseurl: /roygbviz-kb
+repository: KhaiShea/roygbviz-kb
+library_repo: https://github.com/KhaiShea/roygbviz
+pypi: https://pypi.org/project/roygbviz/
+
+# GitHub Docs is built on Primer, GitHub's open-source design system (MIT). Pin the version.
+primer_version: 22.3.2
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-relative-links
+  - jekyll-seo-tag
+
+relative_links:
+  enabled: true
+  collections: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - scripts/
+  - .venv/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/

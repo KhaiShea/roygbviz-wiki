@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{%- comment -%}
+  The home page is built from _data/nav.yml. The Markdown body of index.md is only for people reading on GitHub.
+{%- endcomment -%}
+<section class="hero">
+  <h1>{{ page.title }}</h1>
+  {% if page.intro %}<p class="hero-intro">{{ page.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>{% endif %}
+  {% include search.html id="hero-search" size="large" %}
+</section>
+
+<div class="cards">
+  {% for g in site.data.nav %}
+  <section class="card">
+    <h2>{{ g.group }}</h2>
+    <ul>
+      {% for item in g.pages %}
+      {% assign found = site.html_pages | where: "url", item.url | first %}
+      <li>
+        {% if found %}
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% else %}
+        <span class="soon">{{ item.title }} <span class="Label">Soon</span></span>
+        {% endif %}
+        <p>{{ item.blurb }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>

@@ -1,0 +1,7 @@
+{%- assign crumb = nil -%}
+{%- for g in site.data.nav -%}{%- for item in g.pages -%}{%- if item.url == page.url -%}{%- assign crumb = g.group -%}{%- endif -%}{%- endfor -%}{%- endfor -%}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  {% if crumb %}<span aria-hidden="true">/</span> <span>{{ crumb }}</span>{% endif %}
+  <span aria-hidden="true">/</span> <span aria-current="page">{{ page.title }}</span>
+</nav>

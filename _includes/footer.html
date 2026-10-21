@@ -1,0 +1,6 @@
+<footer class="site-footer">
+  {% if page.path and page.layout != "home" %}<a href="https://github.com/{{ site.repository }}/edit/main/{{ page.path }}">Edit this page on GitHub</a>{% endif %}
+  <a href="{{ site.library_repo }}">Roygbviz on GitHub</a>
+  <a href="{{ site.pypi }}">Roygbviz on PyPI</a>
+  <a href="https://github.com/{{ site.repository }}/issues">Report a problem</a>
+</footer>

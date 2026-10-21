@@ -1,0 +1,53 @@
+# The sidebar, breadcrumbs and home page cards all come from this file.
+# A page that doesn't exist yet shows as "soon" instead of a broken link.
+# Keep the blurbs in step with the table in index.md, which is what GitHub shows.
+- group: Get started
+  pages:
+    - title: Start here
+      url: /start-here.html
+      blurb: Find out what Roygbviz is and where to begin
+    - title: Setup
+      url: /setup.html
+      blurb: Install it and make my first chart
+- group: Concepts
+  pages:
+    - title: Grammar of graphics
+      url: /grammar-of-graphics.html
+      blurb: Understand how plotnine builds a chart
+    - title: Anatomy of a figure
+      url: /anatomy.html
+      blurb: Learn what each part of a chart is called
+    - title: Choosing a plot
+      url: /choosing-a-plot.html
+      blurb: Pick the right chart for my question
+- group: Style
+  pages:
+    - title: Colour
+      url: /colour.html
+      blurb: Use the colours well
+    - title: Fonts and text
+      url: /fonts-and-text.html
+      blurb: Change fonts and text
+    - title: Customisation
+      url: /customisation.html
+      blurb: Tweak the look
+- group: Reference
+  pages:
+    - title: Plot type reference
+      url: /plot-types/
+      blurb: Find code for a specific kind of chart
+    - title: Cascade comparisons
+      url: /cascade-comparisons.html
+      blurb: Compare STT, LLM and TTS models
+    - title: Recipes
+      url: /recipes.html
+      blurb: Copy a ready-made snippet
+    - title: FAQ
+      url: /faq.html
+      blurb: Get a quick answer
+    - title: Glossary
+      url: /glossary.html
+      blurb: Look up a word
+    - title: Credits
+      url: /credits.html
+      blurb: See what it's built on
