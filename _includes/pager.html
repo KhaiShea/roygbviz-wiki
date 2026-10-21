@@ -1,0 +1,37 @@
+{%- comment -%}
+  Previous and next page, in the order of _data/nav.yml. Pages that don't exist yet are skipped, and the first page's
+  "previous" is the home page.
+{%- endcomment -%}
+{%- assign pager_urls = "/" | split: "," -%}
+{%- assign pager_titles = "Home" | split: "," -%}
+{%- for g in site.data.nav -%}
+  {%- for item in g.pages -%}
+    {%- assign found = site.html_pages | where: "url", item.url | first -%}
+    {%- if found -%}
+      {%- assign pager_urls = pager_urls | push: item.url -%}
+      {%- assign pager_titles = pager_titles | push: item.title -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign here = nil -%}
+{%- for u in pager_urls -%}{%- if u == page.url -%}{%- assign here = forloop.index0 -%}{%- endif -%}{%- endfor -%}
+{%- if here -%}
+  {%- assign prev_i = here | minus: 1 -%}
+  {%- assign next_i = here | plus: 1 -%}
+  <nav class="pager" aria-label="Previous and next pages">
+    {%- if prev_i >= 0 %}
+    <a class="pager-link pager-prev" href="{{ pager_urls[prev_i] | relative_url }}" rel="prev">
+      <span class="pager-label"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M10 3 5 8l5 5"/></svg>Previous</span>
+      <span class="pager-title">{{ pager_titles[prev_i] }}</span>
+    </a>
+    {%- else %}
+    <span></span>
+    {%- endif %}
+    {%- if next_i < pager_urls.size %}
+    <a class="pager-link pager-next" href="{{ pager_urls[next_i] | relative_url }}" rel="next">
+      <span class="pager-label">Next<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="m6 3 5 5-5 5"/></svg></span>
+      <span class="pager-title">{{ pager_titles[next_i] }}</span>
+    </a>
+    {%- endif %}
+  </nav>
+{%- endif -%}
